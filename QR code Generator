@@ -1,0 +1,20 @@
+import qrcode
+
+qr = qrcode.QRCode(version =1,
+                   error_correction=qrcode.constants.ERROR_CORRECT_L,
+                   box_size = 20,
+                   border= 5)
+qr.add_data("https://www.neraline.com/books")
+qr.make(fit =True)
+
+img = qr.make_image(fill_color = "red", back_color = "white")
+img.save("advanced.png")
+
+
+//svg image QR Code generator as well below
+import qrcode
+import qrcode.image.svg
+
+factory = qrcode.image.svg.SvgPathImage
+svg_image = qrcode.make("Hello World!", image_factory = factory)
+svg_image.save("myqr.svg")
