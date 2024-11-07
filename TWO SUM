@@ -1,0 +1,15 @@
+class Solution(object):
+
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        hashmap = {}
+        for i, num in enumerate(nums): # the value of num(individual index) in nums(the array) return both the index and the value(enumerate)
+            complement = target - num # find the complement( if its two(2) then the complement is 7)
+            if complement in hashmap: # if the complement is already stored in the hash map then you have the answer
+                return [hashmap[complement], i]
+            hashmap[num] = i # if the complement is not then you add the value to the hash map
+        return [] # else return a empty string
